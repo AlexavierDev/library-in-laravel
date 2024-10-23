@@ -1,35 +1,7 @@
 @import 'bootstrap/scss/bootstrap';
 
 
-.form-floating {
-    position: relative;
-}
 
-.form-floating input,
-.form-floating select {
-    height: 100%; 
-    padding: 1rem .75rem;
-}
 
-.form-floating label {
-    position: absolute;
-    top: 0;
-    left: 0.75rem;
-    padding: 1rem 0.75rem;
-    pointer-events: none;
-    transition: all 0.2s ease-in-out;
-    font-size: 1rem;
-    color: #6c757d;
-}
 
-.form-floating input:focus ~ label,
-.form-floating input:not(:placeholder-shown) ~ label,
-.form-floating select:focus ~ label,
-.form-floating select:not([value=""]) ~ label {
-    top: -0.7rem;
-    left: 0.75rem;
-    font-size: 0.85rem;
-    color: #495057;
-    background-color: #fff;
-    padding: 0 0.25rem;
-}
+

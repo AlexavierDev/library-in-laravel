@@ -29,6 +29,11 @@
                     </div>
 
                     <div class="form-group mb-3 form-floating">
+                        <textarea class="form-control" name="coment" id="coment" rows="3"></textarea>
+                        <label for="coment">Coment</label>
+                    </div>
+
+                    <div class="form-group mb-3 form-floating">
                         <input type="number" id="rating" name="rating" class="form-control" placeholder="From 0 to 10 " min="0" required>
                         <label for="pages">Rating</label>
                     </div>
@@ -42,9 +47,15 @@
                             <option value="Science Fiction">Science Fiction</option>
                             <option value="Biography">Biography</option>
                             <option value="History">History</option>
-                            <!-- Adicione mais opções conforme necessário -->
+
                         </select>
                         <label for="genre">Genre</label>
+                    </div>
+
+                    <div class="form-group mb-3">
+
+                        <input type="file" class="form-control-file>
+
                     </div>
 
                     <button class="btn btn-primary" type="submit">Add Book</button>

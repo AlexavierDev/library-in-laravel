@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('author');
             $table->integer('Rating');
             $table->string('genre');
+            $table->text('coment');
+            $table->string('image');
             $table->timestamps();
         });
     }
@@ -27,6 +29,5 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('books');
-        Schema::dropIfExists('migrations');
     }
 };
