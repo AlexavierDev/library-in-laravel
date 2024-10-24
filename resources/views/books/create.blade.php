@@ -16,7 +16,7 @@
             <div class="col-md">
                 <h2 class="mb-4">Book Details </h2>
 
-                <form action="{{route('books.store')}}" method="post">
+                <form action="{{route('books.store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mb-3 form-floating">
                         <input type="text" id="title" name="title" class="form-control" placeholder=" " required>
@@ -54,7 +54,7 @@
 
                     <div class="form-group mb-3">
 
-                        <input type="file" class="form-control-file>
+                        <input type="file" name="cover" class="form-control-file" accept="image/png, image/jpg, image/jpeg">
 
                     </div>
 
