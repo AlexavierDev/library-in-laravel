@@ -13,9 +13,8 @@ class ControllerBooks extends Controller
         new Books();
 
         $books = Books::all();
-        
-        return view('books.index', ['books' => $books]);
 
+        return view('books.index', ['books' => $books]);
     }
 
     public function add()
@@ -26,7 +25,7 @@ class ControllerBooks extends Controller
 
     //store books in database
     public function store(Request $request)
-    {   
+    {
 
         //get all data from form
         $title = $request->input('title');
@@ -36,18 +35,19 @@ class ControllerBooks extends Controller
         $coment = $request->input('coment');
 
         // verifiy if file is uploaded and move to storage
-        if($request->hasFile('cover')){
+        if ($request->hasFile('cover')) {
             $cover = $request->file('cover');
             $extension = $cover->getClientOriginalExtension();
-            $coverName = time().'.'.$extension;
-            $cover->move('storage\app\public\covers', $coverName);
-        }else{
+            $coverName = time() . '.' . $extension;
+            $path = $cover->storeAs('covers', $coverName, 'public');
+            $coverName = basename($path);
+        } else {
             return "File not uploaded";
         }
-        
+
 
         //save data in database trough model
-        
+
         $books = new Books();
 
         $books->title = $title;
@@ -60,5 +60,14 @@ class ControllerBooks extends Controller
         $books->save();
 
         return redirect('/?suceess=true');
+    }
+
+    //edit info of book
+    public function edit($id)
+    {
+
+        $book =  Books::find($id);
+        return view('books.edit', ['book' => $book]);
+
     }
 }
