@@ -9,3 +9,4 @@ Route::get('/add', ControllerBooks::class . '@add');
 Route::post('/add/store', ControllerBooks::class . '@store')->name('books.store');
 
 Route::get('/edit/{id}', ControllerBooks::class . '@edit');
+Route::put('/edit/update/{id}', ControllerBooks::class . '@update')->name('books.update');

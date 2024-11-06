@@ -4,16 +4,19 @@
         <h1 class="display-1">Library in Laravel</h1>
         <hr>
         <h2>Edit infos of book: {{$book['title']}}</h2>
-        <p>Only comment and rating can be edited </p>
+        <p>Only comment,cover and rating can be edited </p>
 
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="{{route('books.update',  $book['id'])}}" method="post" enctype="multipart/form-data">
             @csrf
+            @method('PUT')
             <div class="card mx-auto mt-5" style="width: 15rem;">
+
                 <img class="card-img-top d-block mx-auto off" style="width: 100%; height: 200px; object-fit: cover;" src="{{ asset('storage/covers/' . $book['image']) }}" alt="Card image cap">
-                <!-- Ícone de Edição -->
-                <a href="/edit-cover/{{$book['id']}}" class="edit-icon">
-                    <i class="fa-regular fa-pen-to-square"></i>
-                </a>
+
+                 <!-- Ícone de Edição -->
+                <label for="coverInput" class="edit-icon"> <i class="fa-regular fa-pen-to-square"></i></label>
+                <input type="file" id="coverInput" name="coverInput" accept="image/*" class="form-control mt-2">
+
                 <div class="card-body">
                     <div class="form-group mb-3 form-floating">
                         <input type="text" id="title" name="title" class="form-control" value="{{$book['title']}}" disabled>
@@ -45,6 +48,5 @@
 
 
     </div>
-
 
 </x-layout>

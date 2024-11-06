@@ -62,12 +62,42 @@ class ControllerBooks extends Controller
         return redirect('/?suceess=true');
     }
 
-    //edit info of book
+    //edit book ( get book by id and send to view edit)
     public function edit($id)
     {
 
         $book =  Books::find($id);
         return view('books.edit', ['book' => $book]);
+    }
+
+    //update infos of book 
+    public function update(Request $request, $id)
+    {
+        $comment =  $request->input('coment');
+        $rating =  $request->input('rating');
+
+
+        if ($request->hasFile('coverInput')) {
+            $cover = $request->file('coverInput');
+            $extension = $cover->getClientOriginalExtension();
+            $coverName = time() . '.' . $extension;
+            $coverPath = $cover->storeAs('covers', $coverName, 'public');
+            $coverName = basename($coverPath);
+        }
+
+        //instance model with id and update 
+        $book = Books::find($id);
+        $book->coment = $comment;
+        $book->Rating = $rating;
+
+        //if cover is true update cover
+        if(isset($coverName)){
+            $book->image = $coverName;
+        }
+        $book->save();
+
+        return redirect('/?update=true');
+        
 
     }
 }
