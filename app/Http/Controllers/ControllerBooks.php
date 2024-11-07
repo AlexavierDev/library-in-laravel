@@ -17,9 +17,10 @@ class ControllerBooks extends Controller
         return view('books.index', ['books' => $books]);
     }
 
+    // return view create new book form
     public function add()
     {
-        // return view create new book form
+
         return view('books.create');
     }
 
@@ -91,13 +92,20 @@ class ControllerBooks extends Controller
         $book->Rating = $rating;
 
         //if cover is true update cover
-        if(isset($coverName)){
+        if (isset($coverName)) {
             $book->image = $coverName;
         }
         $book->save();
 
         return redirect('/?update=true');
-        
+    }
 
+    //delete book
+    public function delete($id)
+    {
+
+        $book = Books::find($id);
+        $book->delete();
+        return redirect('/?delete=true');
     }
 }

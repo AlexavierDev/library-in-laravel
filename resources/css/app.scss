@@ -1,7 +1,14 @@
 @import 'bootstrap/scss/bootstrap';
 
-//add overlay to the image
+body{
+    background-color: #0d0221;
+    color: #fff;
+}
 
+hr#layoutLine{
+    width: 70%;
+    margin: 0 auto;
+}
 
 img.off {
     opacity: 0.5;
@@ -11,7 +18,7 @@ img.off {
     display: block;
     position: absolute;
     top: 20px;
-    right: 75px;
+    right: 150px;
     font-size: 5rem;
     cursor: pointer;
 }
@@ -23,4 +30,34 @@ img.off {
 #coverInput {
     display: none;
 
+}
+
+.card{
+    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.3);
+}
+
+
+#cardEdit{
+    width: 25rem;
+}
+
+.cabecalho img{
+    width: 10%;
+}
+
+.form-floating > label{
+    color: #6d6c6c;
+}
+
+// media queries
+
+@media screen and (max-width: 600px) {
+    .cabecalho img{
+        width: 30%;
+    }
+
+    #cardEdit{
+        width: 15rem;
+    }
+    
 }

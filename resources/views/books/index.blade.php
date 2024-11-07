@@ -1,11 +1,10 @@
-<x-layout title="Series">
-    <div class="container text-center">
-        <h1 class="display-1">Library in Laravel</h1>
-        <h2>Books Added</h2>
-        <a class="btn btn-primary mb-3" href="/add">Add Book</a>
+<x-layout title="Library in Laravel">
+
+    <div class="container text-center mt-3">
+        <a class="btn btn-primary" href="/add">Add Book <i class="fa-solid fa-circle-plus"></i></a>
     </div>
 
-    <div class="container border d-flex gap-3 p-3 flex-wrap">
+    <div class="container d-flex gap-3 p-3 flex-wrap justify-content-center">
 
 
         @foreach($books as $book)
@@ -21,11 +20,12 @@
             </div>
             <div class="card-body">
                 <a href="/edit/{{$book['id']}}" class="btn btn-primary">Edit info</a>
-                <a href="/delete/{{$book['id']}}" class="btn btn-danger">Delete book</a> 
+                <a href="{{route('books.delete',$book['id'])}}" class="btn btn-danger">Delete book</a>
             </div>
         </div>
         @endforeach
     </div>
+
 
 
 

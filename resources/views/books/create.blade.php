@@ -1,11 +1,11 @@
-<x-layout title="Series">
+<x-layout title="Add book">
 
     <div class="container">
 
 
-        <h1 class="display-1 text-center p-5">Library in Laravel</h1>
+    
 
-        <div class="row align-items-center justify-content-center text-center">
+        <div class="row align-items-center justify-content-center text-center mt-4">
 
             <div class="col-md">
                 <h2>Add Book</h2>
