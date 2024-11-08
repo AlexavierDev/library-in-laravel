@@ -4,7 +4,7 @@
 
 ## About
 
-![Library in Laravel Screenshot](public\images\image.png)
+![Library in Laravel Screenshot](public/images/image.png)
 
 This project was created to put my Laravel skills into practice by building a CRUD application where users can add, edit, and remove books, including details like title, author, rating, cover, and more.
 
